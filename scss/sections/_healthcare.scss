@@ -1,0 +1,122 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+.healthcare {
+  padding: 80px 0 30px 0;
+
+  &__block-text {
+    margin: 0 0 45px 0;
+  }
+
+  &__items {
+    display: flex;
+    max-width: 980px;
+    margin: 0 auto;
+    gap: 72px;
+
+    @include max($bp-lg) {
+      flex-direction: column;
+      gap: 25px;
+    }
+  }
+
+  &__column {
+    position: relative;
+    flex: 1 1 0;
+    display: flex;
+
+    @include max($bp-container) {
+      padding: 0 15px;
+    }
+
+    @include max($bp-lg) {
+      flex: 0 0 auto;
+    }
+
+    &_1::before,
+    &_1::after {
+      content: "";
+      position: absolute;
+      background-color: $color-accent;
+      border-radius: 16px;
+    }
+
+    &_1::before {
+      width: 65px;
+      height: 65px;
+      left: -20px;
+      bottom: -35px;
+      transform: rotate(-30deg);
+    }
+
+    &_1::after {
+      width: 97px;
+      height: 97px;
+      right: -45px;
+      top: 20px;
+      border-radius: 30px;
+      transform: rotate(30deg);
+    }
+
+    &_2::after {
+      content: "";
+      position: absolute;
+      background-color: $color-accent;
+      width: 127px;
+      height: 127px;
+      right: -70px;
+      bottom: -35px;
+      border-radius: 40px;
+      transform: rotate(55deg);
+    }
+
+    &_3::after {
+      content: "";
+      position: absolute;
+      background-color: $color-accent;
+      width: 65px;
+      height: 60px;
+      right: -30px;
+      top: -35px;
+      border-radius: 16px;
+      transform: rotate(30deg);
+    }
+  }
+
+  &__item {
+    flex: 1 1 auto;
+  }
+
+  @include max($bp-lg) {
+    padding: 30px 0;
+  }
+}
+
+.item-healthcare {
+  position: relative;
+  z-index: 2;
+  background: $color-white;
+  box-shadow: $shadow-card;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 35px 17px;
+
+  &__icon {
+    margin: 0 0 58px 0;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 138.5%;
+    color: $color-black;
+    margin: 0 0 4px 0;
+  }
+
+  &__text {
+    line-height: 138.5%;
+  }
+}

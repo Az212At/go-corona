@@ -1,0 +1,65 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+.icon-menu,
+.close-icon-menu {
+  display: none;
+}
+
+@include max($bp-md) {
+  .icon-menu {
+    display: flex;
+    position: relative;
+    flex: 0 0 30px;
+    height: 18px;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 0 0 20px;
+
+    &::before,
+    &::after {
+      content: "";
+      background-color: $color-black;
+      height: 2px;
+    }
+
+    span {
+      height: 2px;
+      background-color: $color-black;
+    }
+  }
+
+  .close-icon-menu {
+    flex: 0 0 30px;
+    height: 30px;
+    position: relative;
+    margin: 0 0 0 20px;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      background-color: $color-black;
+      height: 2px;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  .header:target .icon-menu {
+    display: none;
+  }
+
+  .header:target .close-icon-menu {
+    display: flex;
+  }
+}

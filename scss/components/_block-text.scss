@@ -1,0 +1,44 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+.block-text {
+  &_center {
+    text-align: center;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 126%;
+    color: $color-black;
+
+    &:not(:last-child) {
+      margin: 0 0 12px 0;
+    }
+
+    span {
+      color: $color-accent;
+    }
+
+    &_blue span {
+      color: $color-blue;
+    }
+
+    @include max($bp-md) {
+      font-size: 34px;
+    }
+  }
+
+  &__text {
+    line-height: 138.5%;
+
+    &_mw {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    &:not(:last-child) {
+      margin: 0 0 24px 0;
+    }
+  }
+}

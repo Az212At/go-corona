@@ -1,0 +1,20 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+[class*="__container"] {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+
+  @include max($bp-container) {
+    max-width: 970px;
+  }
+
+  @include max($bp-lg) {
+    max-width: 750px;
+  }
+
+  @include max($bp-md) {
+    max-width: none;
+  }
+}
