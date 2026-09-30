@@ -46,3 +46,23 @@ if ("IntersectionObserver" in window) {
 } else {
   items.forEach(show);
 }
+
+const videoCard = document.querySelector(".video-experts");
+const playButton = document.querySelector(".video-experts__play");
+
+if (videoCard && playButton) {
+  playButton.addEventListener("click", () => {
+    const videoUrl = playButton.dataset.video;
+
+    if (!videoUrl) {
+      return;
+    }
+
+    const iframe = document.createElement("iframe");
+    iframe.src = videoUrl;
+    iframe.title = "Video player";
+    iframe.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+    iframe.allowFullscreen = true;
+    videoCard.replaceChildren(iframe);
+  });
+}
